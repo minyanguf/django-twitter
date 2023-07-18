@@ -26,7 +26,7 @@ SECRET_KEY = '0@boj+=b&g+=+5o=id&8p5pz=lkd(sgicwnenf34u)#@ma&if1'
 DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1', '192.168.33.10', 'localhost']
-
+INTERNAL_IPS = ['127.0.0.1', '192.168.33.10', 'localhost','10.0.2.2']
 # Application definition
 
 INSTALLED_APPS = [
@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     # rest frameworks
     'rest_framework',
     # project apps
-    'accounts'
+    'accounts',
+    'debug_toolbar'
 ]
 
 REST_FRAMEWORK = {
@@ -55,6 +56,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "debug_toolbar.middleware.DebugToolbarMiddleware",
 ]
 
 ROOT_URLCONF = 'twitter.urls'
